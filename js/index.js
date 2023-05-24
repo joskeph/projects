@@ -1,11 +1,15 @@
-const a ={
-    method1 : () => " from method 1"
+const Car = function(carname){
+    this.name = carname;
+    this.tires = 4;
+    this.fuel = 100;//starting fuel
 }
 
-const b ={
-    method2:  () => " from method 2"
+Car.prototype={
+    addFuel : ()=>{
+        this.fuel+=100;
+    }
 }
 
-Object.setPrototypeOf(a,b)
+const x60 = new Car("Volvo")
+const sonet = new Car("Kia")
 
-console.log(a.method2())
