@@ -1,5 +1,5 @@
 const Car = function(carname){
-    this.name = carname;
+    this.brand = carname;
     this.tires = 4;
     this.fuel = 100;//starting fuel
 }
