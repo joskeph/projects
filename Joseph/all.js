@@ -391,3 +391,160 @@ function isEmail(e){
     return e.includes('@')?true:false;
 }
 console.log(isEmail("hi@joskeph.com"))
+
+
+
+let fruits=['apple','orange',"jackfruit","banana"]
+console.log(fruits)
+console.log(fruits[3])
+
+fruits[4]="coconut"
+console.log(fruits)
+
+fruits.push("grapes")
+console.log(fruits)
+fruits.pop()
+fruits.unshift("mango")
+
+
+console.log(fruits)
+fruits.shift()
+console.log(fruits.length)
+let i = fruits.indexOf("coconut")
+console.log(i)
+console.log(fruits.indexOf("karikku"))
+console.log(fruits)
+
+let fruits= [1,2,2,3,4]
+
+for(let i=0; i<fruits.length;i++){
+    console.log(fruits[i])
+}
+
+let fruits = ['orange', 'apple',"bananna"]
+for(let i in fruits){
+    console.log(i)
+}
+
+for(let fruit of fruits){
+    console.log(fruit)
+}
+
+
+
+
+
+let fruits = ['orange', 'apple',"bananna"]
+fruits.sort()
+fruits.sort().reverse()
+console.log(fruits)
+
+
+
+
+let numbers = [1,2,3,4,5]
+// let max = Math.max(numbers) // NaN
+let max = Math.max(...numbers)
+let min = Math.min(...numbers)
+console.log(min)
+console.log(max)
+
+
+let username = "joseph Sony";
+
+let arr1= [...username]
+
+let arr1= [...username].join("-")
+
+console.log(arr1)
+
+
+
+let fruits= ["apple","orange","banana"]
+
+
+let newfr = [...fruits]
+console.log(fruits,newfr)
+
+
+
+let fruits= ["apple","orange","banana"]
+let veg = ["carrots","celery","potato"]
+
+let foods = [...fruits,...veg,"water","eggs"]
+console.log(foods)
+
+
+//Rest parameter
+
+const food1="pizza"
+const food2="sushi"
+const food3="al-faham"
+const food4="butter-chicken"
+
+function printfood(...arr){//rest-paramater
+    console.log(...arr)//spread operator
+}
+printfood(food1,food2,food3,food4)
+
+let f1='egg'
+let f2="noodle"
+let f3="food3"
+let f4= "food4"
+function pack(...params){
+    return(params)
+}
+
+let t=pack(f1,f2,f3,f4)
+console.log(t)
+
+
+
+
+//sum of n numbers
+
+function sum(...nums){
+    let s=0
+    for(let i of nums){
+        s+=i
+    }
+    return s
+}
+console.log(sum(1,2,3,4,5,6))
+
+
+
+//get avg
+function avg(...nums){
+    let s=0
+    for(let i of nums){
+        s+=i
+    }
+    return s/nums.length
+}
+console.log(avg(1,2,3,4,5,))
+
+
+
+//rest to cmbine strings
+
+function combine(...stringArr){
+
+    
+    let s=""
+    for(let i of stringArr){
+        s+=i+" "
+    }
+    return s
+}
+console.log(combine("Mr","Joseph","Sony","III"))
+
+
+//rest to cmbine strings
+
+function combine(...stringArr){
+
+
+    return stringArr.join(" ")
+}
+console.log(combine("Mr","Joseph","Sony","III"))
