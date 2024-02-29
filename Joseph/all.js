@@ -569,3 +569,206 @@ function roll(){
     dRes.textContent=`dice: ${values.join(", ")}`
     dImage.innerHTML=images.join()
 }   
+
+
+
+
+
+//callback
+
+function hello(callback){
+    setTimeout(function(){
+        console.log("hello world")
+        
+    callback()
+    },3000)
+    
+}
+function goodbye(callback){
+    console.log("goodbye")
+    callback();
+}
+
+
+function wait(){
+    console.log("wait!")
+}
+hello(wait)
+
+
+function leave(){
+    console.log("Just leave")
+}
+
+
+
+
+
+
+function sum(callback,x,y){
+    let result=x+y
+    callback(result)
+}
+
+function display(result){
+    console.log(result)
+}
+
+sum(display,3,4)
+
+
+
+
+function sum(method,x,y){
+    method(x+y)
+}
+function display(num){
+    console.log(num)
+}
+function displayPage(num){
+    document.body.innerHTML = `<h1> ${num} </h1>`
+}
+sum(displayPage,8,5)
+
+
+
+
+
+
+
+
+//.foreach()
+
+let nums=[1,2,3,4,5]
+
+function display(e,i,l){
+    console.log(e,i,l) // return element, index, and array itself
+}
+
+function double(e,i,a){
+    a[i]=e*2
+}
+function triple(e,i,a){
+    a[i]=e**2
+}
+nums.forEach(triple)
+nums.forEach(display)
+
+
+
+
+let fruits=["apple","ornage","banana","mango","papaya","watermelon"]
+
+
+function display(e){
+    console.log(e)
+}
+function capitalize(e, i,a){
+    a[i]=a[i].charAt(0).toUpperCase()+a[i].slice(1)
+}
+fruits.forEach(capitalize)
+fruits.forEach(display)
+
+// x='hello'.sp
+
+
+
+
+n=[1,2,3,4,5,6]
+function cube(x){
+    return x*x*x
+}
+console.log(n.map(cube))
+
+
+
+
+//map 
+s=[
+    "Spongebob","Patrick","Squidward","Mr.Krabs"
+]
+function up(e){
+    return e.toUpperCase();
+}
+console.log(s.map(up))
+
+
+const dates= ["2024-02-12","2023-04-12"]
+
+function format(date){
+    let t = date.split("-")
+    return (`${t[2]} ${t[1]} ${t[0]}`)
+}
+console.log(dates.map(format))
+
+
+
+
+//.filter() fiter out and create new array fucntion should return true to keep
+
+n=[1,2,3,4,5,6,7]
+function isEven(e){
+    return e%2==0
+}
+console.log(n.filter(isEven))
+
+
+
+
+
+
+
+
+const ages =[16,17,18,17,18,18,17,19,20,45]
+
+function adults(p){
+    return p>=18
+}
+function minor(p){
+    return p<18
+}
+console.log(ages.filter(adults))
+console.log(ages.filter(minor))
+
+
+
+const words=["hello","world","heavens","mars","Jupiter","Saturn"]
+function moreThan6(w){
+    return w.length>=6
+}
+console.log(words.filter(moreThan6))
+
+
+
+//.reduce() reduce elements of array to singel value 
+const prices =[1,2,20,30,440,550,100]
+
+const total =prices.reduce(sum);
+function sum(accumulator,element){
+    return accumulator+element
+}
+
+console.log(total)
+
+
+
+const grades = [10,90,80,60,10,70,70,60,65]
+
+function max(a,e){
+    return e>a?e:a
+}
+console.log(grades.reduce(max))
+
+
+
+
+const hello = function(){
+    console.log("hello")
+}
+hello()
+
+
+//setTimeout 
+setTimeout(function(){
+    console.log("hello")
+},3000)
