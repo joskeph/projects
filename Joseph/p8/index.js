@@ -1,4 +1,4 @@
-const nums= [1,2,3,4,5,6]
+const nums = [1,2,3,4,5]
 console.log(nums.map(function(i,e,a){
-    return i**3
+    return e**3
 }))

@@ -774,3 +774,9 @@ setTimeout(function(){
 },3000)
 
 test
+
+
+const nums= [1,2,3,4,5,6]
+console.log(nums.map(function(i,e,a){
+    return i**3
+}))
