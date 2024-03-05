@@ -657,6 +657,15 @@ nums.forEach(display)
 
 
 
+a=[1,2,3,4,5]
+a.forEach(function(e,i,a){
+    a[i]**=2
+})
+console.log(a)
+
+
+
+
 let fruits=["apple","ornage","banana","mango","papaya","watermelon"]
 
 
@@ -679,6 +688,17 @@ function cube(x){
     return x*x*x
 }
 console.log(n.map(cube))
+
+
+
+
+a=[1,2,3,4,5,6,7]
+
+x=a.map(function(e){
+    return e*2
+})
+console.log(x)
+
 
 
 
@@ -713,7 +733,14 @@ function isEven(e){
 console.log(n.filter(isEven))
 
 
+a=[1,2,3,4,5,6,7]
 
+x=a.filter(function(e){
+    if(e%2==0){
+        return true
+    }
+})
+console.log(x)
 
 
 
@@ -780,3 +807,169 @@ const nums= [1,2,3,4,5,6]
 console.log(nums.map(function(i,e,a){
     return i**3
 }))
+
+
+
+
+/// Arrow function 
+
+let helloOther = function(){
+    console.log('hello')
+}
+
+const hello = () => console.log("hello")
+hello()
+
+
+
+
+
+
+let call = (name,age)=>{
+    console.log(`hello ${name}, you are ${age} years old`)
+}
+call("hello",10)
+
+
+
+setTimeout(()=>{console.log("Done")},3000)
+
+
+setTimeout(fnName,3000)
+
+function fnName(){
+    console.log("Hello")
+}
+
+//arrow with mapt filter and reduce
+const numbers = [1,2,3,4,5,6]
+
+const squares = numbers.map((element,index,array)=>element**2)
+const even = numbers.filter((element)=>element%2==0)
+const sum = numbers.reduce((a,e)=>a+e)
+
+console.log(squares)
+console.log(even)
+console.log(sum)
+
+
+
+// .method( (argumen1,argument2,argument3) => return argumen1+argument2+argument3 )
+
+/// Javascript objects
+
+const person = {
+    Fname : "Spongebob",
+    Lname: "Squarepants",
+    age : 30,
+    isEmployed:true
+}
+
+console.log(person.Fname)
+
+const person2 = {
+    fName : "Patrick",
+    lName : "Star",
+    age:42,
+    isEmployed: false
+}
+console.log(person2.fName)
+console.log(person2.lName)
+console.log(person2.age)
+console.log(person2.isEmployed)
+
+
+//methods
+const fns = {
+    add : (a,b) => a+b,
+    sub : (a,b )=> a-b
+}
+console.log(fns.sub(7,3))
+console.log(fns.add(10,20))
+
+
+/// This
+
+const person1 ={
+    name :"Spongebob",
+    favFood: "Hamburgers",
+    sayHello:function(){console.log(this.name)}
+
+}
+person1.sayHello();
+
+// ---------------
+const person1 ={
+    name :"Spongebob",
+    favFood: "Hamburgers",
+    eat: function(){console.log(` ${this.name} is eating ${this.favFood}`)}
+
+}
+const person2 ={
+    name :"patric",
+    favFood: "Pizza",
+    eat: function(){console.log(` ${this.name} is eating ${this.favFood}`)}
+
+}
+
+
+person2.eat();
+///-----------------------------------
+
+
+// this keyword does not work with arrow function , because it refrrences window object
+
+
+
+
+
+
+
+
+//// Constructors
+
+function Car(make,model,year,color){
+    this.make = make;
+    this.model = model;
+    this.year= year;
+    this.color= color;
+    this.drive = function (){
+        console.log(`You are driving the ${this.make} ${this.model}`)
+    }
+}
+
+car1 = new Car("ford","mustang",2000,"red")
+console.log(car1)
+car2 = new Car("Chevy","Blazor",2024,"Blue")
+console.log(car2)
+const car3 = new Car("Dodge","Charger",2026,"silver")
+console.log(car3.model,car3)
+
+car2.drive()
+
+
+
+
+//// Classes
+
+
+class Product{
+    constructor(name,price){
+        this.name =name;
+        this.price = price
+    }
+    displayProduct(){
+        console.log(this.name,this.price.toFixed(2))
+    }
+    total(salesTax){
+        return this.price+this.price*salesTax/100
+    }
+}
+
+const p1 = new Product("Shirt",19.99)
+p1.displayProduct()
+const p2 = new Product("pants",22.50)
+p2.displayProduct()
+const p3 = new Product("Underwear",100)
+p3.displayProduct()
+console.log(p2.total(30))
