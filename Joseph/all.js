@@ -973,3 +973,72 @@ p2.displayProduct()
 const p3 = new Product("Underwear",100)
 p3.displayProduct()
 console.log(p2.total(30))
+
+
+// static
+// belongs ot the class object not any children made from it
+class utils{
+    static PI = 3.14159
+}
+
+// let util1 = new utils();
+
+console.log(utils.PI)
+
+
+
+// -----------------
+class meth{
+    static PI = 3.14159;
+    static dia(rad){
+        return rad*2
+    }
+    static circ(rad){
+        return 2*this.PI*rad
+    }
+    static area( rad){
+        return this.PI*rad*rad
+    }
+}
+
+console.log(meth.dia(10))
+console.log(meth.circ(10))
+console.log(meth.area(10))
+
+
+// -------------------------------------
+class User{
+    static count = 0;
+    constructor(username){
+        this.username = username
+        User.count+=1
+    }
+}
+
+const u1 = new User("Joseph")
+console.log(u1.username)
+// console.log(u1.count)
+console.log(User.count)
+
+
+
+
+// --------------------------
+class User{
+    static count = 0;
+    static names =[]
+    constructor(username){
+        this.username = username
+        User.count+=1
+        User.names.push(username)
+    }
+}
+
+const u1 = new User("Joseph")
+console.log(u1.username)
+// console.log(u1.count)
+console.log(User.count)
+const u2 = new User("patrick")
+const u3 = new User("Spongebob")
+console.log(User.names,User.count)
+//----------------------------------
