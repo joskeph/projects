@@ -1343,3 +1343,75 @@ class Person{
 const person1 = new Person("Spongebob","Squarepants",30)
 console.log(person1.fn,person1.ln,person1.age)
 console.log(person1.fullName)
+
+
+// destructuring
+// [] array destructuring
+// {} object destructuring
+
+// Example 1
+// Swapping variables
+let a =1;
+let b = 2;
+[a,b]=[b,a]
+
+console.log(a)
+console.log(b)
+
+//Example 2
+// exchange values in arrays
+const colors = ['red', "green", "blue","black","white"];
+
+[colors[0],colors[4]] = [colors[4],colors[0]];
+console.log(colors)
+
+
+// Example 3
+// Get values from array
+const colors = ['red', "green", "blue","black","white"];
+const [ c1,c2,c3,...extra] =colors;
+console.log(c1,c2,c3)
+console.log(extra)
+
+
+//  Example 4
+
+const person1 = {
+    fn:"Sbob",
+    ln:"Sqp",
+    age :30,
+    job:"cook"
+}
+const person2 = {
+    fn:"Patrick",
+    ln:"Star",
+    age :34
+}
+
+const {fn,ln,age,job} = person1
+console.log(fn,ln,age,job)
+
+
+
+const {fn,ln,age,job="jobless"} = person2
+console.log(fn,ln,age,job)
+
+/// Example 5
+const person1 = {
+    fn: "Sbob",
+    ln: "Sqp",
+    age: 30,
+    job: "cook"
+};
+const person2 = {
+    fn: "Patrick",
+    ln: "Star",
+    age: 34
+};
+
+function displayPerson({ fn, ln, age, job = "jobless" }) {
+    console.log(fn, ln, age, job);
+}
+displayPerson(person1)
+displayPerson(person2);
+
