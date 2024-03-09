@@ -924,8 +924,6 @@ person2.eat();
 
 
 
-
-
 //// Constructors
 
 function Car(make,model,year,color){
@@ -1006,6 +1004,8 @@ console.log(meth.circ(10))
 console.log(meth.area(10))
 
 
+
+
 // -------------------------------------
 class User{
     static count = 0;
@@ -1042,3 +1042,304 @@ const u2 = new User("patrick")
 const u3 = new User("Spongebob")
 console.log(User.names,User.count)
 //----------------------------------
+
+
+
+
+/// Inheritence new class inhertts properteis and methods from parent
+
+
+class Animal{
+    alive= true
+
+    eat(){
+        console.log(`${this.name} is Eating`)
+    }
+    sleep(){
+        console.log(`${this.name} is sleeping`)
+    }
+}
+
+class Rabbit extends Animal{
+    name = "Rabbit"
+    run(){
+        console.log(`${this.name } is running`)
+    }
+}
+class Fish extends Animal{
+    name = "Fish"
+    swim(){
+        console.log(`${this.name } is swimming`)
+    }
+}
+class Hawk extends Animal{
+    name = "Hawk"
+    fly(){
+        console.log(`${this.name } is flying`)
+    }
+}
+
+const rabbit = new Rabbit()
+const fish = new Fish()
+const hawk = new Hawk()
+
+console.log(rabbit.alive)
+
+rabbit.alive= false
+rabbit.eat()
+rabbit.sleep()
+
+console.log(fish.alive)
+fish.sleep()
+fish.eat()
+
+rabbit.run()
+fish.swim()
+hawk.fly()
+
+
+
+
+// Super 
+//  this => that object
+//  super => the parent object
+
+
+class Animal{
+    constructor(name, age){
+        this.name = name
+        this.age = age
+    }
+    move(speed){
+        console.log(`${this.name} moves at a speed of ${speed} km/hr `)
+    }
+}
+class Rabbit extends Animal{
+    constructor(name, age, rs){
+        super(name,age);
+        this.runSpeed = rs
+    }
+    run(){
+        super.move(this.runSpeed)
+        console.log(`${this.name} can Run`)
+    }
+}
+class Fish extends Animal{
+    constructor(name, age, ss){
+        super(name,age);
+        this.swimSpeed = ss
+    }
+    swim(){
+        super.move(this.swimSpeed)
+        console.log(`${this.name} can Swim`)
+    }
+}
+class Hawk extends Animal{
+    constructor(name, age, fs){
+        super(name,age);
+        this.flySpeed = fs
+    }
+    fly(){
+        super.move(this.flySpeed)
+        console.log(`${this.name} can Fly`)
+    }
+}
+
+const rabbit1 = new Rabbit("Bugs Bunny",1, 20)
+const fish1 = new Fish("Nemo",2, 45)
+const hawk1 = new Hawk("McQueen",5, 90)
+
+fish1.swim()
+rabbit1.run()
+
+///--------------------
+
+// Getters and Setters
+// getter makes property readable
+// setter make property writable
+
+class Rectangle{
+    constructor(width,height){
+        this.width = width
+        this.height = height
+    }
+}
+
+// const rect1 = new Rectangle(-1000,"pizza")
+// console.log(rect1.width,rect1.height)
+
+// this should not be possible
+
+// therefore setters
+
+
+class Rectangle{
+    constructor(width,height){
+        this.width = width
+        this.height = height
+    }
+    set width(newWidth){
+            if (newWidth>=0){
+                this._width = newWidth //._ is private tell other dont change it
+            }else{
+                console.error("Width must be positive number")
+            }
+    }
+    set height(newHeight){
+        if (newHeight>=0){
+            this._height = newHeight //._ is private tell other dont change it
+        }else{
+            console.error("Height must be positive number")
+        }
+}
+}
+
+const rect1 = new Rectangle(10,10)
+console.log(rect1.height) // undefinied still
+
+///Setter
+
+class Rectangle{
+    constructor(ww,hh){
+        this.width = ww
+        this.height = hh
+    }
+    set width(newWidth){
+            if (newWidth>=0){
+                this._width = newWidth //._ is private tell other dont change it
+            }else{
+                console.error("Width must be positive number")
+            }
+    }
+    set height(newHeight){
+        if (newHeight>=0){
+            this._height = newHeight //._ is private tell other dont change it
+        }else{
+            console.error("Height must be positive number")
+        }
+    }
+    get width(){
+        return this._width
+    }get height(){
+        return this._height
+    }
+
+    get area(){
+        return this._height * this._width
+    }
+}
+
+
+const rect1 = new Rectangle(10,10)
+console.log(rect1.height,rect1.width)
+
+rect1.height= 100;
+console.log(rect1.height)
+
+rect1.width= "pizza" //not possible // retains values
+
+console.log(rect1.area)
+
+//--------------------------------
+
+class Rectangle{
+    constructor(ww,hh){
+        this.width = ww
+        this.height = hh
+    }
+    set width(newWidth){
+            if (newWidth>=0){
+                this._width = newWidth //._ is private tell other dont change it
+            }else{
+                console.error("Width must be positive number")
+            }
+    }
+    set height(newHeight){
+        if (newHeight>=0){
+            this._height = newHeight //._ is private tell other dont change it
+        }else{
+            console.error("Height must be positive number")
+        }
+    }
+    get width(){
+        return ` ${this._width.toFixed(1)} cms`
+    }get height(){
+        return `${this._height.toFixed(1)} cms`
+    }
+
+    get area(){
+        return `${(this._height * this._width).toFixed(2)} cm^2`
+    }
+}
+
+
+const rect1 = new Rectangle(10,10)
+console.log(rect1.height,rect1.width)
+
+rect1.height= 100;
+console.log(rect1.height)
+
+rect1.width= "pizza" //not possible // retains values
+
+console.log(rect1.area)
+
+//  ----------------------------------------
+// EXAMPLE 2
+class Person{
+    constructor(fn,ln,age){
+        this.fn = fn;
+        this.ln= ln;
+        this.age = age;
+    }
+}
+const person1 = new Person(42, 30, "pizza")
+console.log(person1.fn,person1.ln,person1.age)
+
+// this should not be possible
+
+// Solution
+class Person{
+    constructor(fn,ln,age){
+        this.fn = fn;
+        this.ln= ln;
+        this.age = age;
+    }
+    set fn(t){
+        if(typeof t === "string" &&  t.length>0){
+            this._fn= t
+        }else{
+            console.error("Fistname must a non empty string")
+        }
+    }
+    set ln(t){
+        if(typeof t === "string" &&  t.length>0){
+            this._ln= t
+        }else{
+            console.error("LastName should be a non empty string")
+        }
+    }
+    set age(t){
+        if(typeof t === "number" &&  t>0){
+            this._age= t
+        }else{
+            console.error("Age should be a Number greater than 0")
+        }
+    }
+
+
+    get fn(){
+        return this._fn
+    }
+    get ln(){
+        return this._ln
+    }
+    get age(){
+        return this._age
+    }
+    get fullName(){
+        return `${this._fn} ${this._ln}`
+    }
+}
+const person1 = new Person("Spongebob","Squarepants",30)
+console.log(person1.fn,person1.ln,person1.age)
+console.log(person1.fullName)
