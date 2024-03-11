@@ -1415,3 +1415,233 @@ function displayPerson({ fn, ln, age, job = "jobless" }) {
 displayPerson(person1)
 displayPerson(person2);
 
+// Nested objects 
+// Nested objects
+
+
+const person = {
+    fullName : "sheldon Cooper",
+    age:30,
+    isStudent: true,
+    hobbies: ["fishing","cooking","coding"],
+    address:{
+        street:"104/202",
+        city:"Pasadena",
+        state:"California"
+    }
+}
+
+console.log(person.address.city)
+
+for(let prop in person.address){
+    console.log(person.address[prop])
+}
+
+// ----------------
+class Address{
+    constructor(st,city,country){
+        this.street= st;
+        this.city = city;
+        this.country= country;
+    }
+}
+class Person{
+    constructor(name, age, ...address){
+        this.name = name;
+        this.age= age;
+        this.address= new Address(...address)
+    }
+}
+
+const p1 = new Person("Spng",30, "124 conch st,","bikini Bottom","intl waters")
+const p2 = new Person("Sheldon",45,"02/4","Pasadena","United States")
+
+
+console.log(p1.address)
+console.log(p1.address.country)
+console.log(p1)
+
+
+
+//------------------------------
+// Arrays of objects
+const fruits = [
+    {name:"apple",color:"Red",calories:45},
+    {name:"orange", color:'Orange', calories: 30},
+    {name:"banana", color:"Yellow", calories: 90},
+    {name:"coconut", color:"White", calories: 36},
+    {name:"Pineapple", color:"Yellow", calories: 10}
+    ]
+    
+
+// console.log(fruits[1].color)
+
+for(i in fruits){
+    console.log(fruits[i])
+}
+fruits.push({name:"grapes",color:"Purple",calories:10})
+
+// console.log(fruits)
+
+// fruits.splice(1,2)
+// console.log(fruits)
+console.log("")
+fruits.forEach((f)=>{console.log(f.name)})
+
+
+const fruitNames = fruits.map((fruit)=>fruit.name)
+
+console.log(fruitNames)
+
+const yelloF= fruits.filter((f) => f.color==="Yellow")
+console.log(yelloF)
+
+
+    
+// console.log(fruits.reduce((a,e)=>e.calories>a.calories?e:a))
+const maxCal = fruits.reduce((a,e)=>e.calories>a.calories?e:a)
+console.log(maxCal)
+
+
+
+
+
+/// Sorting
+//in lexicographic order
+
+let fruits = ["orange","banana","apples","melon","grapes"]
+
+fruits.sort()
+
+console.log(fruits)
+
+
+
+let nums = [1,20,1,40,10, 30,3]
+nums.sort()
+console.log(nums)   //[1, 1, 10, 20, 3, 30, 40] lexicographic
+
+
+
+//Sorting
+
+let nums = [1,20,1,40,10, 30,3]
+nums.sort((a,b)=>a-b)
+
+console.log(nums)//[1, 1, 3, 10, 20, 30, 40]
+
+nums.sort((a,b)=>b-a)
+console.log(nums) // descending [40, 30, 20, 10, 3, 1, 1]
+
+// -----
+
+const people = [{name:"Sp",age:30,gpa:1.5},
+{name:"Pat",age:34,gpa:0.7},
+{name:"sandy",age:20,gpa:4.0}]
+
+people.sort((a,b)=>a.gpa-b.gpa) //for numerical comparison
+console.log(people) 
+
+people.sort((a,b)=>a.name.localeCompare(b.name)) ///for alpahbetical comparision
+console.log(people)
+
+
+
+
+// --------------------
+//Shuffling
+//Shuffling and aray
+
+const deck = ["A",1,2,3,4,5,6,7,8,9,20,"J","Q","K"]
+
+
+// To shuffle:
+deck.sort(() => Math.random()-0.5)
+console.log(deck)
+//but very inefficient
+
+
+
+//Shuffling and aray
+
+const deck = ["A",1,2,3,4,5,6,7,8,9,10,"J","Q","K"]
+
+//Fisher-Yates algorithm
+shuffle(deck)
+
+function shuffle(array){
+    for(let i = array.length -1;i>0;i--){
+        const random = Math.floor((Math.random()*i))
+        [array[i],array[random]]=[array[random],array[i]]
+    }
+}
+console.log(deck)
+
+
+
+
+/// Date
+
+// Dates 
+
+const date = new Date()
+
+console.log(date)
+
+//custom 
+// const date1 = new Date(year, month, day, hour, minute, second , ms)
+
+const date1 = new Date(2023)
+console.log(date1)
+
+// or time in ms since epyc
+
+const date2 = new Date(0)
+console.log(date2)
+
+const date23 = new Date(1700000000000)
+console.log(date23)
+//or in str 
+
+const date4 = new Date("2023-12-30")
+console.log(date4)
+
+
+
+
+// -----------------
+const date = new Date();
+
+
+const year = date.getFullYear();
+const month = date.getMonth(); //month  no -1 
+console.log(month)
+const dayte = date.getDate()
+console.log(dayte)
+
+
+const hours = date.getHours() //plural
+console.log(hours)
+const mins = date.getMinutes() 
+console.log(mins)
+const s = date.getSeconds() 
+console.log(s)
+
+const dayOfWeek = date.getDay()
+console.log(dayOfWeek) //sunday0-monday1 sat 6
+
+
+/// Alter date 
+let date = new Date();
+date.setFullYear(2026)
+date.setMonth(3) // 0 is jan
+date.setDate(27)
+console.log(date)
+
+//date comparison
+
+const date1 = new Date('2024-01-01')
+const date2 = new Date('2023-01-01')
+
+console.log(date2>date1) //false
+console.log(date1>date2) //true
