@@ -321,7 +321,7 @@ console.log(full.slice(-2))
 
 
 
-let email= "joskeph@gmail.com"
+let email= "wjakjsdfad@gmail.com"
 let username=email.slice(0,email.indexOf("@"))
 let prov = email.slice(email.indexOf("@")+1)
 console.log(email,username,prov)
