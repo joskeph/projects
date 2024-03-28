@@ -1694,7 +1694,7 @@ let count = 0
 // Solution
 
 
-function Counter(){
+function createCounter(){
     let count = 0
     function increment(){
         count++
@@ -1705,7 +1705,7 @@ function Counter(){
     return {increment:increment}
 }
 
-t = Counter() 
+t = createCounter() 
 
 t.increment()
 t.increment()
@@ -1729,3 +1729,28 @@ t.increment()
 t.increment()
 console.log(t.getCount())
 //---------------------------------------------------------
+
+
+function createGame(){
+    score =0
+    function increment(n=1){
+        score += n
+        console.log(score,"pts")
+    }
+    function decrement(n=1){
+        score-=n
+        console.log(score,"pts")
+    }
+    function getScore(){
+        return score
+    }
+    return {increment, decrement, getScore}
+}
+
+let game1 = createGame()
+
+game1.increment(10)
+game1.increment(100000000)
+
+game1.decrement(20)
+console.log(game1.getScore())
