@@ -1711,6 +1711,21 @@ t.increment()
 t.increment()
 t.increment()
 t.increment()
+// -----------------------------------------
+function Counter(){
+    count = 0
+    function increment(n){
+        count =count+1
+        console.log(count)
+    }
+    function getCount(){
+        return (count)
+    }
+    return({getCount:getCount,increment:increment})
+}
 
-
-//  wwe cnnanot 
+t = new Counter();
+t.increment()
+t.increment()
+console.log(t.getCount())
+//---------------------------------------------------------
