@@ -1645,3 +1645,72 @@ const date2 = new Date('2023-01-01')
 
 console.log(date2>date1) //false
 console.log(date1>date2) //true
+
+
+
+// closure = function defined inside another function, ithe inner fucntion can accesss the varible off the outer fucntion
+
+
+function outer(){
+    let message = "Hello!"
+    function inner(){
+        console.log("message")
+    }
+    inner()
+}
+
+outer()
+
+// ------------------------
+
+function outer(){
+    let message = "Hello!"
+    function inner(){
+        console.log("message")
+    }
+    inner()
+}
+message = "goodbye" //doesnt work is on another scope
+outer() 
+
+// ----------------------
+// Does not work 
+
+function increment(){
+    let count =0;
+    count++
+    console.log(`${count}`)
+}
+
+
+increment()
+
+//cannot declare outside, as no privace
+let count = 0
+//  then we may accidetly modify it
+
+
+// -----------------------
+// Solution
+
+
+function Counter(){
+    let count = 0
+    function increment(){
+        count++
+        console.log(count)
+    }
+    return increment
+    //actually
+    return {increment:increment}
+}
+
+t = Counter() 
+
+t.increment()
+t.increment()
+t.increment()
+t.increment()
+
+
+//  wwe cnnanot 
