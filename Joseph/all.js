@@ -1754,3 +1754,26 @@ game1.increment(100000000)
 
 game1.decrement(20)
 console.log(game1.getScore())
+
+
+// -----------------------------
+
+// SetTimeout
+//  id = setTimeout( callback, milliseconds)
+// clearTimeout(id)  
+
+
+t = setTimeout(()=>console.log("hello world"), 3000)
+
+function startTimer(){ ///Get from HTml
+    t = setTimeout(()=> {console.log("Hello world")}, 3000)
+    console.log("started")
+}
+function stopTimer(){
+    clearTimeout(t)
+    console.log("cleared")
+
+}
+// ----------------------------------------
+
+
