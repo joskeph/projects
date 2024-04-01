@@ -1,0 +1,63 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    box-sizing: border-box;
+    border: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    max-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    /* background-color:#ff99d8; */
+    background-image:
+    radial-gradient(at 91% 61%, hsla(30,87%,70%,1) 0px, transparent 50%),
+    radial-gradient(at 55% 0%, hsla(233,65%,66%,1) 0px, transparent 50%),
+    radial-gradient(at 20% 53%, hsla(305,91%,70%,1) 0px, transparent 50%),
+    radial-gradient(at 88% 50%, hsla(91,84%,78%,1) 0px, transparent 50%),
+    radial-gradient(at 23% 96%, hsla(331,93%,78%,1) 0px, transparent 50%),
+    radial-gradient(at 33% 34%, hsla(104,80%,75%,1) 0px, transparent 50%),
+    radial-gradient(at 50% 57%, hsla(37,62%,76%,1) 0px, transparent 50%);
+}
+
+
+#h1{
+    margin-top: 2em;
+    font-size: 2rem;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 1em;
+   
+}
+
+#display{
+    font-family: monospace;
+    font-size: 4rem;
+    border: 6px solid black;
+    border-radius: 2rem;
+}    
+
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2em;
+}
+
+button{
+    width: 10rem;
+    height: 3rem;
+    font-size: 2rem;
+    border: 0.25rem solid black;
+    border-radius: 1rem;
+    font-weight: 800;
+    background-color: #ffffff00;
+}

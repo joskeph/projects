@@ -1788,3 +1788,235 @@ function update(){
 
 update()
 setInterval(update,100)
+
+
+
+// --------------------------------------
+// stopwatch  //does not work, did not account for elapsed time
+let startTime
+let TIMER
+let d=0
+let state = 0
+function start(){
+    if(state==0){
+        state=1
+        startTime=Date.now()
+        // console.log(startTime)
+        TIMER=setInterval(update,10)
+        
+    }
+    if(state==2){
+        TIMER=setInterval(update,10)
+        state=1
+        startTime=Date.now()
+    }
+}
+
+function stop(){
+    if(state==1){
+
+        state=2
+        clearInterval(TIMER)
+    }
+}
+function reset(){
+    if(state=!0){
+        startTime=0
+        document.getElementById("display").textContent="00:00:00:00"
+        state=0
+        clearInterval(TIMER)
+        }
+    
+}
+function update(){
+    
+        x=(Date.now()-startTime)
+        d=x
+       
+        h=Math.floor((d/3600000)%60).toString().padStart(2,'0')
+        M=Math.floor((d/60000)%60).toString().padStart(2,'0')
+        s=Math.floor((d/1000%60)).toString().padStart(2,'0')
+        m=Math.floor((d%1000)/10).toString().padStart(2,'0')
+        console.log(h,M,s,m)
+         document.getElementById("display").textContent=h+":"+M+":"+s+":"+m
+
+}
+
+
+
+// ---------------------------------
+// better stopwatch
+
+
+const display=document.getElementById("display")
+let timer = null
+let startTime = 0
+let elapsed = 0
+let running = 0
+
+function start(){
+
+    if(!running){
+        startTime = Date.now()-elapsed
+        timer = setInterval(update,10)
+        console.log(timer)
+        running = 1
+    }
+}
+
+function stop(){
+    if(running){
+        clearInterval(timer);
+        elapsed=Date.now()-startTime
+        running = 0
+    }
+}
+function reset(){
+        clearInterval(timer);
+        startTime=0
+        elapsed=0
+        display.textContent="00:00:00:00"
+        running = 0
+}
+
+function update(){
+    const current = Date.now()
+    elapsed = current - startTime
+
+    h=Math.floor((elapsed/3600000)%60).toString().padStart(2,'0')
+    M=Math.floor((elapsed/60000)%60).toString().padStart(2,'0')
+    s=Math.floor((elapsed/1000%60)).toString().padStart(2,'0')
+    m=Math.floor((elapsed%1000)/10).toString().padStart(2,'0')
+    console.log(h,M,s,m)
+    display.textContent=h+":"+M+":"+s+":"+m
+}
+
+
+/// ES6 MODULEs
+
+
+<script src="mathUtil.js"></script>
+<script type="module" src="index.js"></script>
+
+
+///mathutil.js
+
+export const PI = 3.14159
+
+export function getCircumference(r){
+    return 2*PI*r
+}
+
+export function getArea(r){
+    return PI*r*r
+}
+export function getVolume(r){
+    return 4/3*PI*r*r*r
+}
+
+////// index.js
+
+import {PI,getCircumference,getArea,getVolume} from './mathUtil.js'
+
+
+console.log(PI)
+console.log(getCircumference(20))
+console.log(getVolume(20))
+console.log(getArea(20))
+
+
+
+//Async and sync
+
+//sync
+console.log("task10")
+console.log("task2")
+console.log("task3")
+
+
+//async used with tasks that can take indefinite amount of time
+
+
+
+t = setTimeout(()=>console.log("task1"),3000)
+
+console.log("task2")
+console.log("task3")
+
+// task2 task3 task1
+
+
+
+//// if Strictly need order
+function func2(){
+    console.log("task2")
+    console.log("task3")
+}
+function func1(callback){
+    setTimeout(()=>{console.log("Task1");callback()},3000)
+    
+}
+func1(func2)
+//task1 task2 task3
+
+/// OR
+
+setTimeout(()=>{console.log(1);b()},3000)
+function b(){
+    console.log(2)
+}
+
+// // Error objects
+
+
+//eg console.leg(), or securty error or user error then program execution stops
+// handle with try, catch, finally
+
+
+
+try{
+    console.err("hello")
+    }
+    catch(e){
+        console.error(e)
+    }
+    console.log("you have reached the end")
+// /finnaly block used for code that is always shoudl be exe,
+// eg; closing files, connections or release resource
+try{
+    console.err("hello")
+}
+catch(e){
+        console.error(e)
+}
+finally{
+    console.log("this always executes")
+}
+
+console.log("you have reached the end")
+
+///v
+const divident = window.prompt("enter divident")
+const divisor = window.prompt("enter divident")
+
+result = divident/divior /// dangerous
+//therefor
+
+try{
+    const d= window.prompt("enter divident")
+    const r= window.prompt("enter divisor")
+
+    if(r==0){
+        throw new Error("you cant divide by 0")
+    }
+    if(isNaN(d) || isNaN(r)){
+        throw new Error("values must be numbers")
+    }
+    let result = d/r
+    console.log(result)
+}
+catch(e){
+    console.error(e)
+}
+
+console.log('you have reached the end')
