@@ -1,0 +1,28 @@
+body{
+    margin: 0;
+    height: 100vh;
+/* 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background-color:#b399ff;
+    background-image:
+    radial-gradient(at 19% 52%, hsla(175,74%,69%,1) 0px, transparent 50%),
+    radial-gradient(at 35% 38%, hsla(76,83%,79%,1) 0px, transparent 50%),
+    radial-gradient(at 16% 86%, hsla(157,70%,78%,1) 0px, transparent 50%),
+    radial-gradient(at 45% 21%, hsla(15,87%,71%,1) 0px, transparent 50%),
+    radial-gradient(at 94% 45%, hsla(268,71%,61%,1) 0px, transparent 50%),
+    radial-gradient(at 94% 57%, hsla(67,94%,74%,1) 0px, transparent 50%),
+    radial-gradient(at 70% 77%, hsla(190,94%,76%,1) 0px, transparent 50%);
+#clock-cont{
+    display:  flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#clock{
+    font-family: monospace;
+    font-size: 6.5rem;
+    text-align: center;
+}
